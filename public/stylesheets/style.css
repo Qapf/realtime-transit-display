@@ -1,6 +1,6 @@
 body, html {
-  background: #2f363c;
-  color: white;
+  background: white;
+  color: black;
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -148,29 +148,51 @@ h3 {
   height: 49px;
   line-height: 50px;
 }
-#muni12_4669 .busnumber,
-#muni12_4668 .busnumber {
-  background: #b304a9;
+#muni8_7671 .busnumber,
+#muni8_4886 .busnumber {
+  background: #181818;
+  color: #FFFFFF;
 }
-#muni49_5552 .busnumber,
-#muni49_5551 .busnumber {
-  background: #00b77d;
+#muni49_5800 .busnumber {
+  background: #a0a0a0;
+  color: #000000;
 }
-#muni14_5552 .busnumber,
-#muni14_5551 .busnumber,
-#muni14L_5552 .busnumber,
-#muni14L_5551 .busnumber{
-  background: #dca102;
+#muni49_7638 .busnumber {
+  background: #a0a0a0;
+  color: #000000;
 }
-#muni22_3299 .busnumber,
-#muni22_7289 .busnumber {
-  background: #0f6fb9;
+#muni14_5599 .busnumber{
+  background: #dadada;
+  color: #000000;
 }
-#muni33_3299 .busnumber,
-#muni33_7289 .busnumber {
-  background: #b4304f;
+#muni14_5598 .busnumber{
+  background: #dadada;
+  color: #000000;
 }
-
+#muni14R_5593 .busnumber{
+  background: #dadada;
+  color: #000000;
+} 
+#muni14R_5592 .busnumber{
+  background: #dadada;
+  color: #000000;
+}
+#muni54_7671 .busnumber {
+  background: #303030;
+  color: #FFFFFF;
+}
+#muni54_4886 .busnumber {
+  background: #303030;
+  color: #FFFFFF;
+}
+#muni43_4886 .busnumber {
+  background: #404040;
+  color: #FFFFFF;
+}
+#muni43_7671 .busnumber {
+  background: #404040;
+  color: #FFFFFF;
+}
 #uber .col1,
 #uber .col2 {
   float: left;

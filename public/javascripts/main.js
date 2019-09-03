@@ -56,7 +56,7 @@ function updateBARTDepartures(){
     url: 'http://api.bart.gov/api/etd.aspx',
     data: {
       cmd: 'etd',
-      orig: '16TH',
+      orig: 'balb',
       key: bartAPIKey
     },
     dataType: 'xml',
@@ -111,7 +111,7 @@ function updateBARTDepartures(){
       .append($('<div>')
         .addClass('destination')
         .css('background', departure.hexcolor)
-        .css('color', (departure.color == 'YELLOW') ? '#333' : '#FFF')
+        .css('color', (departure.color == 'YELLOW') ? '#000' : '#FFF')
         .html(departure.destination))
       .append($('<div>')
         .addClass('nextbus'))
@@ -145,7 +145,7 @@ function updateBARTAdvisories(){
     url: 'http://api.bart.gov/api/bsa.aspx',
     data: {
       cmd: 'bsa',
-      orig: '16TH',
+      orig: 'balb',
       key: bartAPIKey
     },
     dataType: 'xml',
@@ -169,80 +169,19 @@ function updateBARTAdvisories(){
 function updateMUNI(){
   //Define Muni Roures
  var MUNIroutes = [
-    {
-      route: 12,
-      stop:4668,
-      direction: 'north',
-      destination: 'Folsom to Downtown and North Beach'
-    },
-    {
-      route: 12,
-      stop:4669,
-      direction: 'south',
-      destination: 'Folsom to 24th St'
-    },
-    {
-      route: 49,
-      stop:5551,
-      direction: 'north',
-      destination: 'Van Ness to Ft Mason'
-
-    },
-    {
-      route: 49,
-      stop:5552,
-      direction: 'south',
-      destination: 'Mission to Excelsior'
-    },
-    {
-      route: 14,
-      stop:5551,
-      direction: 'north',
-      destination: 'Mission to Transbay & Ferry Building'
-    },
-    {
-      route: 14,
-      stop:5552,
-      direction: 'south',
-      destination: 'Mission to Excelsior'
-    },
-    {
-      route: '14L',
-      stop:5551,
-      direction: 'north',
-      destination: 'Mission to Transbay Terminal'
-    },
-    {
-      route: '14L',
-      stop:5552,
-      direction: 'south',
-      destination: 'Mission to Excelsior'
-    },
-    {
-      route: 22,
-      stop:7289,
-      direction: 'north',
-      destination: 'Fillmore to Marina'
-    },
-    {
-      route: 22,
-      stop:3299,
-      direction: 'east',
-      destination: '16th St to Potrero Hill & Dogpatch'
-    },
-    {
-      route: 33,
-      stop:7289,
-      direction: 'west',
-      destination: '18th to the Haight & the Richmond'
-    },
-    {
-      route: 33,
-      stop:3299,
-      direction: 'south',
-      destination: 'Potrero to 25th St'
-    }
-  ];
+   {route: '14R', stop:5593, direction: 'north', destination: 'Outer Mission to Transbay Terminal'},
+   {route: '14R', stop:5592, direction: 'south', destination: 'Downtown & Mission to Excelsior'},
+   {route: 14, stop:5599, direction: 'north', destination: 'Outer Mission to Transbay Terminal'},
+   {route: 14, stop:5598, direction: 'south', destination: 'Downtown & Mission to Excelsior'},
+   {route: 49, stop:5800, direction: 'north', destination: 'Fort Mason via the Mission'},
+   {route: 49, stop:7638, direction: 'south', destination: 'City College via Ocean, passing Balboa BART'},
+   {route: 8, stop:7671, direction: 'west', destination: 'City College via Ocean, passing Balboa BART'},
+   {route: 8, stop:4886, direction: 'north', destination: 'Union Square and Ferry Building'},
+   {route: 54, stop:7671, direction: 'west', destination: 'Daily City'},
+   {route: 54, stop:4886, direction: 'east', destination: 'Hunters Point'},
+   {route: 43, stop:7671, direction: 'north', destination: 'The Marina via UCSF'},
+   {route: 43, stop:4886, direction: 'south', destination: 'Crocker Amazon Playground'}
+ ];
 
   var url = 'http://webservices.nextbus.com/service/publicXMLFeed',
       callbackCount = 0;
@@ -375,7 +314,7 @@ function updateClock() {
   hours = ( hours == 0 ) ? 12 : hours;
 
   // Compose the string for display
-  var timeString = hours + ':' + minutes + ':' + seconds + ' ' + timeOfDay;
+  var timeString = hours + ':' + minutes + timeOfDay;
   var dateString = day + ', ' + month + ' ' + date;
 
   // Update the time display
@@ -431,12 +370,12 @@ $(document).ready(function(){
   setInterval(updateMUNI, 15000);
 
   //Get Uber
-  updateUber();
-  setInterval(updateUber, 60000);
+//  updateUber();
+//  setInterval(updateUber, 60000);
 
   //Get weather every hour
-  updateWeather();
-  setInterval(updateWeather, 3600000);
+//  updateWeather();
+//  setInterval(updateWeather, 3600000);
 
   //Resize transit if needed
   resizeDepartures();
